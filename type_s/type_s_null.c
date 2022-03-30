@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_s_null.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 18:06:11 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/26 13:47:29 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:31:51 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,8 @@ int		width_precision_null_left(t_format *f)
 int		null_s_justify(t_format *f)
 {
 	int	i;
-	int	nb_pad;
 
 	i = 0;
-	nb_pad = 0;
 	if (f->width < 6 && f->flags.precision == false)
 		i += ft_putstr("(null)");
 	if (f->flags.precision == true && f->flags.width == true)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_p.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 10:47:41 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/26 13:15:55 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:35:44 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,10 @@ int		width_precision_p_p(t_format *f, unsigned long long p, char c, char *b)
 int		pos_p_no_justify(t_format *f, unsigned long long p)
 {
 	int		i;
-	int		len;
-	int		w_to_print;
 	char	c_to_print;
 	char	*base;
 
 	i = 0;
-	len = 0;
-	w_to_print = 0;
 	base = "0123456789abcdef";
 	c_to_print = c_padding_to_print(f);
 	if (f->flags.precision == false && f->flags.width == false)
@@ -124,15 +120,12 @@ void	print_p(const char *str, t_format *f, va_list arg)
 {
 	unsigned long long	ptr;
 	int					i;
-	char				x;
-	char				print;
 	char				*base;
 
 	i = 0;
-	x = which_x_type(str);
+	(void)str;
 	ptr = va_arg(arg, unsigned long long);
 	base = "0123456789abcdef";
-	print = c_padding_to_print(f);
 	if (!ptr)
 		i += handle_null_pointer(f, ptr);
 	else

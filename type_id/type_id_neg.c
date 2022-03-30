@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_id_neg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 18:09:34 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/28 11:31:39 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:33:37 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,8 @@ int		r_print_width_precision_neg(t_format *f, int n, char p)
 int		neg_no_justify(t_format *f, int n, char c)
 {
 	int	i;
-	int	w_to_print;
 
 	i = 0;
-	w_to_print = (f->width > n_size_i(n)) ? f->width - n_size_i(n) : 0;
 	if (n == INT_MIN && f->width < n_size_u(INT_MIN))
 		i += ft_putstr("-2147483648");
 	else if (f->flags.precision == false && f->flags.width == true)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 14:01:20 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/28 17:06:37 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:36:08 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int		print_null_c(t_format *f)
 {
 	int		i;
-	char	to_print;
 
-	to_print = c_padding_to_print(f);
 	i = 0;
 	if (f->flags.width == true && f->flags.justify_right == false)
 		i += print_x_time(' ', f->width - 1);

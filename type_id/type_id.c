@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_id.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:42:29 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/28 12:41:11 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:33:01 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		zero_pad_precision_i(t_format *f, int n, char c)
 	int p_to_print;
 	int num;
 
+	(void)c;
 	i = 0;
 	num = n;
 	p_to_print = 0;

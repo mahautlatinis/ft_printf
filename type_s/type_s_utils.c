@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_s_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 18:52:02 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/26 13:40:40 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:32:34 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int		ft_putstr_precision(char *str, t_format *f)
 	int		i;
 	int		precision;
 	int		len;
-	char	to_print;
 
 	precision = f->precision;
 	len = ft_strlen(str);
-	to_print = c_padding_to_print(f);
 	if (precision == 0 && f->flags.precision == true)
 		return (0);
 	i = 0;

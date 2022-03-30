@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_s.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 10:22:26 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/26 13:42:39 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:31:27 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,19 @@ int		print_pad_s(t_format *f, const char *s)
 
 void	print_null_s(t_format *f)
 {
-	int		max_precision;
 	int		i;
+	/*
+	int		max_precision;
 	int		width;
 	char	to_print;
 
+	(void)width;
+	(void)to_print;
+	(void)max_precision;
 	max_precision = f->precision;
 	width = f->width;
 	to_print = c_padding_to_print(f);
+	*/
 	i = 0;
 	if (f->flags.justify_right == false)
 		i += null_s_no_justify(f);
@@ -60,6 +65,7 @@ void	print_s(t_format *f, va_list arg)
 		print_null_s(f);
 		return ;
 	}
+	(void)len;
 	len = ft_strlen(s);
 	i = 0;
 	if (f->flags.justify_right == 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/28 14:00:33 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:34:10 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,10 @@ int		pos_x_no_justify(t_format *f, unsigned int n, char x)
 void	print_x(const char *str, t_format *f, va_list arg)
 {
 	int		i;
-	char	print;
 	int		n;
 
 	i = 0;
 	n = va_arg(arg, unsigned int);
-	print = c_padding_to_print(f);
 	if (f->flags.justify_right == 0)
 		i += pos_x_no_justify(f, n, which_x_type(str));
 	else
