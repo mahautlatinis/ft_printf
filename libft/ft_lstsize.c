@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2020/09/06 21:42:49 by malatini          #+#    #+#             */
+/*   Updated: 2023/09/28 13:13:55 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+/*
+** Counts the number of elements in a list.
+** NON STANDARD FUNCTION.
+*/
+
+int	ft_lstsize(t_list *lst)
 {
-	int		n;
-	char	*base;
-	char	x;
+	int	i;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	if (!lst)
+		return (0);
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

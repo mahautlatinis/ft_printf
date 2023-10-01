@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2021/01/09 12:25:00 by malatini          #+#    #+#             */
+/*   Updated: 2023/09/28 13:14:49 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int		n;
-	char	*base;
-	char	x;
+	size_t	src_size;
+	size_t	i;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	if (!src || !dst)
+		return (0);
+	src_size = ft_strlen(src);
+	if (dstsize == 0)
+		return (src_size);
+	i = 0;
+	while (i < dstsize - 1 && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (src_size);
 }

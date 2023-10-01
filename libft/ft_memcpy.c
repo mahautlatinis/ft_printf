@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2021/01/09 16:22:15 by malatini          #+#    #+#             */
+/*   Updated: 2023/09/28 13:14:05 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+/*
+**	Copies n bytes from memory area src to memory area dst.
+** If dst and src overlap, behavior is undefined.
+*/
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int		n;
-	char	*base;
-	char	x;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	if (!dst && !src)
+		return (dst);
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	while (n--)
+		d[n] = s[n];
+	return (dst);
 }

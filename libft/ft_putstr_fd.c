@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2020/09/06 22:43:08 by malatini          #+#    #+#             */
+/*   Updated: 2023/09/28 13:14:26 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+/*
+** Outputs the string ’s’ to the given file descriptor.
+*/
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		n;
-	char	*base;
-	char	x;
+	int	i;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	i = 0;
+	if (fd < 0 || !s)
+		return ;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

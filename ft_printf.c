@@ -6,11 +6,11 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 11:41:00 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/01 22:42:03 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "./includes/ft_printf.h"
 
 int	print_type(const char *str, t_format *spec, va_list arg_ptr)
 {
@@ -18,7 +18,10 @@ int	print_type(const char *str, t_format *spec, va_list arg_ptr)
 
 	type = spec->type;
 	if (type == PC)
-		print_pc(str, spec);
+	{
+		ft_putchar('%');
+		spec->printed_chars += 1;
+	}
 	else if (type == S)
 		print_s(spec, arg_ptr);
 	else if (type == ID)
@@ -38,23 +41,20 @@ int	parse(const char *format, va_list arg_ptr)
 {
 	t_format	*spec;
 	int			printed_chars;
-	int			star;
 
 	spec = ft_initialize_struct();
 	fill_struct(format, spec);
-	if ((star = found_star(format, spec)) > 0)
-		handle_star(format, spec, arg_ptr, star);
 	print_type(format, spec, arg_ptr);
 	printed_chars = spec->printed_chars;
 	free(spec);
 	return (printed_chars);
 }
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	int			printed_chars;
-	va_list		arg_ptr;
-	int			i;
+	int		printed_chars;
+	va_list	arg_ptr;
+	int		i;
 
 	printed_chars = 0;
 	i = 0;
@@ -66,7 +66,7 @@ int		ft_printf(const char *format, ...)
 			if (!(is_correct_spec(&format[i])))
 				return (0);
 			printed_chars += parse(&format[i], arg_ptr);
-			i += len_until_end_format(&format[i]);
+			i += percent_len(&format[i]);
 		}
 		else
 		{

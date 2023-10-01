@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2020/09/06 22:40:08 by malatini          #+#    #+#             */
+/*   Updated: 2023/09/28 13:14:24 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+/*
+** Outputs the integer ’n’ to the given file descriptor.
+*/
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		n;
-	char	*base;
-	char	x;
+	long	temp;
+	long	nb;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	nb = n;
+	if (fd < 0)
+		return ;
+	if (nb < 0)
+	{
+		nb = -nb;
+		write(fd, "-", 1);
+	}
+	if (nb > 9)
+		ft_putnbr_fd(nb / 10, fd);
+	temp = nb % 10 + '0';
+	write(fd, &temp, 1);
 }

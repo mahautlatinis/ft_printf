@@ -1,53 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_s.c                                           :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/13 10:22:26 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:03:07 by mahautlatin      ###   ########.fr       */
+/*   Created: 2021/03/10 21:20:56 by malatini          #+#    #+#             */
+/*   Updated: 2023/10/01 22:43:16 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	print_c(t_format *f, va_list arg)
+int	count_nbr_u_base(unsigned int nbr, char *base)
 {
-	int	c;
+	long		nb;
+	int			base_len;
+	static int	i;
 
-	c = va_arg(arg, int);
-	f->printed_chars += ft_putchar(c);
+	nb = nbr;
+	base_len = 16;
+	i = 0;
+	if (base_len - 1 < nb)
+		count_nbr_u_base(nb / base_len, base);
+	i++;
+	return (i);
 }
 
-int	percent_len(const char *s)
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+int	ft_putstr(const char *str)
 {
 	int	i;
 
-	i = 1;
-	if (!s)
+	if (!str)
 		return (0);
-	while (s[i])
+	i = 0;
+	while (str[i])
 	{
-		if (is_correct_type(s[i]))
-			return (i);
+		ft_putchar(str[i]);
 		i++;
 	}
-	return (0);
-}
-
-void	print_s(t_format *f, va_list arg)
-{
-	int		i;
-	char	*s;
-
-	s = va_arg(arg, char *);
-	if (!s)
-	{
-		f->printed_chars += ft_putstr(NULL_STR);
-		return ;
-	}
-	i = 0;
-	i += ft_putstr(s);
-	f->printed_chars += i;
+	return (i);
 }

@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2020/09/03 22:54:45 by mahautlatin       #+#    #+#             */
+/*   Updated: 2023/09/28 13:14:40 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+/*
+** Allocates memory for a copy of s1, does the copy and returns a point to it.
+** LIBC FUNCTION.
+*/
+
+char	*ft_strdup(const char *s1)
 {
-	int		n;
-	char	*base;
-	char	x;
+	int		i;
+	char	*cpy;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	i = 0;
+	while (s1[i])
+		i++;
+	cpy = (char *)malloc(sizeof(char) * (i + 1));
+	if (!cpy)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		cpy[i] = s1[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
 }

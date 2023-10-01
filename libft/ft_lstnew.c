@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2020/09/06 22:20:56 by malatini          #+#    #+#             */
+/*   Updated: 2023/09/28 13:13:52 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+/*
+** Allocates and return a new element
+** The variable 'content' is initialized with the value of the 'content'.
+** The variable 'next' is initialized to NULL.
+*/
+
+t_list	*ft_lstnew(void const *content)
 {
-	int		n;
-	char	*base;
-	char	x;
+	t_list	*new;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+	{
+		return (NULL);
+	}
+	new->content = (void *)content;
+	new->next = NULL;
+	return (new);
 }

@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_x.c                                           :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:04:50 by mahautlatin      ###   ########.fr       */
+/*   Created: 2020/09/06 22:29:00 by malatini          #+#    #+#             */
+/*   Updated: 2023/09/28 13:13:57 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "./include/libft.h"
 
-void	print_x(const char *str, t_format *f, va_list arg)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int		n;
-	char	*base;
-	char	x;
+	size_t			i;
+	unsigned char	*cpy_src;
+	unsigned char	*cpy_dst;
 
-	x = which_x_type(str);
-	if (x == 'x')
-		base = BASE16;
-	else
-		base = BASE16_UPPERCASE;
-	n = va_arg(arg, unsigned int);
-	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	i = 0;
+	cpy_src = (unsigned char *)src;
+	cpy_dst = (unsigned char *)dst;
+	while (n > 0)
+	{
+		cpy_dst[i] = cpy_src[i];
+		if (cpy_src[i] == (unsigned char)c)
+			return (&cpy_dst[i + 1]);
+		i++;
+		n--;
+	}
+	return (NULL);
 }
