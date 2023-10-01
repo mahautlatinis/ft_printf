@@ -1,60 +1,45 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/04 08:34:15 by malatini          #+#    #+#              #
-#    Updated: 2021/03/28 11:27:36 by malatini         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME = libftprintf.a
+
+LIBFT_PROJECT = libft
+LIBFT_MAKE = Makefile
+LIBFT_PATH = ${LIBFT_PROJECT}/libft.a
 
 SRCS =	./ft_printf.c \
-		./utils/utils0.c \
-		./utils/utils1.c \
-		./utils/utils2.c \
-		./utils/utils3.c \
-		./utils/utils4.c \
-		./utils/utils5.c \
-		./type_pc/type_pc.c \
-		./type_s/type_s.c \
-		./type_s/type_s_null.c \
-		./type_s/type_s_utils.c \
-		./type_id/type_id.c \
-		./type_id/type_id_pos.c \
-		./type_id/type_id_neg.c \
-		./type_id/type_id_neg_utils.c \
-		./type_u/type_u.c \
-		./type_u/type_u_utils.c \
-		./type_u/type_u_utils2.c \
-		./type_x/type_x_utils.c \
-		./type_x/type_x.c \
-		./type_p/type_p.c \
-		./type_p/type_p_utils.c \
-		./type_c/type_c.c \
+		./utils/checks.c \
+		./utils/print.c \
+		./utils/initialize.c \
+		./types/type_s.c \
+		./types/type_id.c \
+		./types/type_u.c \
+		./types/type_x.c \
+		./types/type_p.c
 
 OBJS = ${SRCS:.c=.o}
 
-NAME = libftprintf.a
-CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
+RM = rm -rf
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I${LIBFT_PROJECT}
 
-all: 		${NAME}
+all: ${NAME}
 
-$(NAME):	$(OBJS)
-			ar -rc $(NAME) $(OBJS)
+.c.o:
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+$(NAME): 	$(OBJS) ${LIBFT_PROJECT}
+			ar -rcs ${NAME} $(OBJS)
+
+${LIBFT_PROJECT}:
+			make -C ${LIBFT_PROJECT} -f ${LIBFT_MAKE} all
+			cp ${LIBFT_PATH} ${NAME}
 
 clean:
-			${RM} ${OBJS} ${OBJSBONUS}
+			${RM} ${OBJS}
+			make -C ${LIBFT_PROJECT} -f ${LIBFT_MAKE} clean
 
-fclean: 	clean
+fclean: clean
 			${RM} ${NAME}
+			make -C ${LIBFT_PROJECT} -f ${LIBFT_MAKE} fclean
 
-re: 		fclean all
+re: fclean all
 
-test: 		${NAME}
-			clear && ${CC} main.c -L. ${NAME} && ./a.out | cat -e
-
-.PHONY:		bonus all clean fclean re
+.PHONY:		bonus all clean fclean re ${LIBFT_PROJECT}
