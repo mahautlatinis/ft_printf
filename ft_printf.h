@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/28 17:02:41 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/01 11:50:32 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct	s_format
 	int			printed_chars;
 }				t_format;
 
-int				ft_putchar(int c);
+int				ft_putchar(char c);
 int				ft_isdigit(int c);
 int				found_char(const char *str, char c);
 int				n_size_i(int n);
@@ -56,7 +56,7 @@ int				is_correct_type(char c);
 int				ft_strlen(const char *s);
 int				is_correct_spec(const char *s);
 int				ft_putstr(const char *str);
-char			c_padding_to_print(t_format *format);
+//char			c_padding_to_print(t_format *format);
 int				found_char_until_type(const char *str, char c);
 char			*ft_strdup(const char *s1);
 int				print_x_time(char c, int x);
@@ -127,7 +127,7 @@ int				width_precision_p_p(t_format *f, unsigned long long ptr, char c,
 					char *b);
 int				pos_p_no_justify(t_format *f, unsigned long long ptr);
 int				pos_p_justify(t_format *f, unsigned long long p, char *b);
-void			print_p(const char *str, t_format *f, va_list arg);
+void			print_p(t_format *f, va_list arg);
 void			ft_putnbr_p_base(unsigned long long n, char *b);
 int				zero_pad_width_p(t_format *f, unsigned long long ptr, char c,
 					char *b);
@@ -136,7 +136,7 @@ int				r_width_precision_p(t_format *f, unsigned long long p, char c,
 					char *b);
 int				handle_special_maxs(t_format *f, unsigned int n, int i);
 int				zero_pad_width(t_format *f, unsigned int n, char c);
-int				zero_pad_precision_i(t_format *f, int n, char c);
+int				zero_pad_precision_i(t_format *f, int n);
 void			print_id(t_format *f, va_list arg);
 int				print_pad_then_number(t_format *f, int n);
 int				zero_pad_true_width(int n, char c, int w_to_print);
@@ -148,7 +148,7 @@ int				pos_number(t_format *f, int n);
 int				width_precision_neg(t_format *f, int n, char c);
 int				r_print_width_precision_neg(t_format *f, int n, char p);
 int				neg_no_justify(t_format *f, int n, char c);
-int				neg_justify(t_format *f, int n, char c);
+//int				neg_justify(t_format *f, int n, char c);
 int				neg_number(t_format *f, int n);
 int				width_precision_neg_no_justify(t_format *f, int n, char c);
 int				precision_neg_justify(t_format *f, int n);

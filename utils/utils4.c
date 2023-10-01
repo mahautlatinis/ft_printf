@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:58:22 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/20 17:51:23 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/01 10:58:35 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_format	*ft_initialize_struct(void)
 	return (format);
 }
 
-bool		justify_right(const char *str, t_format *f)
+bool	justify_right(const char *str, t_format *f)
 {
 	bool	dash;
 	int		max;
@@ -50,7 +50,7 @@ bool		justify_right(const char *str, t_format *f)
 	return (dash);
 }
 
-bool		zero_pad(const char *str, t_format *f)
+bool	zero_pad(const char *str, t_format *f)
 {
 	int	i;
 
@@ -76,7 +76,7 @@ bool		zero_pad(const char *str, t_format *f)
 	return (false);
 }
 
-int			fill_type(const char *str, t_format *f)
+int	fill_type(const char *str, t_format *f)
 {
 	int	type;
 
@@ -87,7 +87,7 @@ int			fill_type(const char *str, t_format *f)
 	return (type);
 }
 
-void		fill_struct(const char *str, t_format *f)
+void	fill_struct(const char *str, t_format *f)
 {
 	if (!str && !f)
 		return ;

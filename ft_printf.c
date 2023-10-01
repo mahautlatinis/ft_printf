@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/28 10:50:03 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/01 11:41:00 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		print_type(const char *str, t_format *spec, va_list arg_ptr)
+int	print_type(const char *str, t_format *spec, va_list arg_ptr)
 {
 	int	type;
 
@@ -28,13 +28,13 @@ int		print_type(const char *str, t_format *spec, va_list arg_ptr)
 	else if (type == H)
 		print_x(str, spec, arg_ptr);
 	else if (type == P)
-		print_p(str, spec, arg_ptr);
+		print_p(spec, arg_ptr);
 	else if (type == C)
 		print_c(spec, arg_ptr);
 	return (-1);
 }
 
-int		parse(const char *format, va_list arg_ptr)
+int	parse(const char *format, va_list arg_ptr)
 {
 	t_format	*spec;
 	int			printed_chars;

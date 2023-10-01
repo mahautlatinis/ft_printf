@@ -6,17 +6,17 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:38:53 by malatini          #+#    #+#             */
-/*   Updated: 2022/03/30 17:29:22 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/01 10:55:16 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		diff_width_any_type(t_format *f, const char *str)
+int	diff_width_any_type(t_format *f, const char *str)
 {
 	int	diff_width;
-	int len;
-	int a_width;
+	int	len;
+	int	a_width;
 
 	diff_width = 0;
 	a_width = f->width > 0 ? f->width : -f->width;
@@ -41,10 +41,10 @@ int		diff_width_any_type(t_format *f, const char *str)
 	return (diff_width);
 }
 
-int		get_width(const char *str, t_format *f)
+int	get_width(const char *str, t_format *f)
 {
-	int width;
-	int i;
+	int	width;
+	int	i;
 
 	if (!str && !f)
 		return (false);
@@ -63,7 +63,7 @@ int		get_width(const char *str, t_format *f)
 	return (width);
 }
 
-int		get_precision(const char *str, t_format *f)
+int	get_precision(const char *str, t_format *f)
 {
 	int		precision;
 	int		i;
@@ -91,9 +91,9 @@ int		get_precision(const char *str, t_format *f)
 	return (precision);
 }
 
-int		get_type(const char *f)
+int	get_type(const char *f)
 {
-	int i;
+	int	i;
 
 	if (!f)
 		return (0);
@@ -119,12 +119,12 @@ int		get_type(const char *f)
 	return (0);
 }
 
-int		count_nbr_u_base(unsigned int nbr, char *base)
+int	count_nbr_u_base(unsigned int nbr, char *base)
 {
-	long			nb;
-	int				temp;
-	int				base_len;
-	static int		i;
+	long		nb;
+	int			temp;
+	int			base_len;
+	static int	i;
 
 	(void)temp;
 	nb = nbr;

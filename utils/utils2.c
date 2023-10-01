@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 21:20:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/23 11:06:05 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/01 10:54:57 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		found_char_until_type(const char *str, char c)
+int	found_char_until_type(const char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str && !c)
@@ -38,7 +38,8 @@ char	*ft_strdup(const char *s1)
 		return (NULL);
 	while (s1[i])
 		i++;
-	if (!(cpy = (char *)malloc(sizeof(char) * (i + 1))))
+	cpy = (char *)malloc(sizeof(char) * (i + 1));
+	if (!cpy)
 		return (NULL);
 	i = 0;
 	while (s1[i])
@@ -50,9 +51,9 @@ char	*ft_strdup(const char *s1)
 	return (cpy);
 }
 
-int		print_x_time(char c, int x)
+int	print_x_time(char c, int x)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < x)
@@ -63,7 +64,7 @@ int		print_x_time(char c, int x)
 	return (i);
 }
 
-int		len_with_precision(const char *s, t_format *f)
+int	len_with_precision(const char *s, t_format *f)
 {
 	int	i;
 
@@ -94,7 +95,7 @@ int		len_with_precision(const char *s, t_format *f)
 
 char	which_x_type(const char *f)
 {
-	int i;
+	int	i;
 
 	if (!f)
 		return (0);

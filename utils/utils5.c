@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   utils5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 18:03:45 by malatini          #+#    #+#             */
-/*   Updated: 2021/03/26 13:06:13 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/01 10:59:21 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		found_star(const char *str, t_format *f)
+int	found_star(const char *str, t_format *f)
 {
-	int i;
-	int star;
+	int	i;
+	int	star;
 
 	i = 1;
 	star = 0;
@@ -33,9 +33,9 @@ int		found_star(const char *str, t_format *f)
 	return (-1);
 }
 
-int		after_star(const char *str, char c)
+int	after_star(const char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '%')
@@ -66,7 +66,7 @@ void	handle_two_stars(t_format *f, va_list arg)
 	f->flags.precision = true;
 }
 
-int		handle_star(const char *str, t_format *f, va_list arg, int star)
+int	handle_star(const char *str, t_format *f, va_list arg, int star)
 {
 	if (star == 1)
 	{
