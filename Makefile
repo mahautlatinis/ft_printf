@@ -18,7 +18,7 @@ OBJS = ${SRCS:.c=.o}
 
 RM = rm -rf
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I${LIBFT_PROJECT}
+CFLAGS = -Wall -Wextra -Werror -g3 -I${LIBFT_PROJECT}
 
 all: ${NAME}
 
