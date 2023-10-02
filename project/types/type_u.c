@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:23:14 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/02 17:13:12 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/02 17:49:14 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	ft_putnbr_u_base(t_format *f, unsigned int n, char *b)
 	i++;
 	return (i);
 }
-
 
 void	print_u(t_format *f, va_list arg)
 {
