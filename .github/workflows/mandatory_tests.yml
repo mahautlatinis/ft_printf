@@ -15,3 +15,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: make
       run: make
+    - name: cd ft_printf_tests
+      run: cd ft_printf_tests
+    - name: sh test m
+      run: sh test m
