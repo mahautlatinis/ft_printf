@@ -14,6 +14,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: mandatory tests
-      run: ls -lR; make; ./tester/test m
-      #make; ./tester m
+      run: ls -lR; make; cd ./tester; make; sh test m
       shell: bash
