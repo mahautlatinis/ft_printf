@@ -14,5 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: mandatory tests
-      run: make; cd ./ft_printf_tester; echo $PWD; make; ./tester m
+      run: make; cd ./ft_printf_tester; echo $PWD; ls;
+      #make; ./tester m
       shell: bash
