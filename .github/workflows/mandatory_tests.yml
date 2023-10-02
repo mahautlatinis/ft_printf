@@ -13,9 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: make
-      run: make
-    - name: cd ./ft_printf_tester
-      run: cd ./ft_printf_tester
-    - name: sh test m
-      run: sh test m
+    - name: mandatory tests
+      run: make; cd ./ft_printf_tester; sh test m
+      shell: bash
