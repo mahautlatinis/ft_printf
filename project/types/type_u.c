@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:23:14 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:03:52 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/02 17:49:14 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ int	putnbr_unsigned(unsigned int n)
 
 	nb = n;
 	i = 0;
-	if (n < 0)
-	{
-		nb = -n;
-		ft_putchar('-');
-	}
 	if (nb > 9)
 		i += putnbr_unsigned(nb / 10);
 	ft_putchar(nb % 10 + '0');
@@ -36,11 +31,6 @@ int	n_size_u(unsigned int n)
 	unsigned int	i;
 
 	i = 1;
-	if (n < 0)
-	{
-		i++;
-		n = -n;
-	}
 	while (n > 9)
 	{
 		n = n / 10;
@@ -64,7 +54,6 @@ int	ft_putnbr_u_base(t_format *f, unsigned int n, char *b)
 	i++;
 	return (i);
 }
-
 
 void	print_u(t_format *f, va_list arg)
 {
