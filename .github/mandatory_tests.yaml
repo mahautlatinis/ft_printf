@@ -1,0 +1,17 @@
+name: mandatory_tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate relaxed YAML file
+        run:  make && cd ./ft_printf_tester
+        run:  sh test m
+        shell: bash
