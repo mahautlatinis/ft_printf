@@ -1,0 +1,15 @@
+name: mandatory
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-yaml:
+    runs-on: self-hosted
+    steps:
+      - name: Mandatory test
+        run:  make
+        shell: bash
