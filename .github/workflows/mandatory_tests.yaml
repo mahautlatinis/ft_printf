@@ -1,0 +1,17 @@
+name: mandatory
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - name: 'Mandatory tests'
+      run: make
+      shell: bash
