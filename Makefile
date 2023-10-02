@@ -1,18 +1,18 @@
 NAME = libftprintf.a
 
-LIBFT_PROJECT = libft
+LIBFT_PROJECT = ./project/libft
 LIBFT_MAKE = Makefile
 LIBFT_PATH = ${LIBFT_PROJECT}/libft.a
 
-SRCS =	./ft_printf.c \
-		./utils/checks.c \
-		./utils/print.c \
-		./utils/initialize.c \
-		./types/type_s.c \
-		./types/type_id.c \
-		./types/type_u.c \
-		./types/type_x.c \
-		./types/type_p.c
+SRCS =	./project/ft_printf.c \
+		./project/utils/checks.c \
+		./project/utils/print.c \
+		./project/utils/initialize.c \
+		./project/types/type_s.c \
+		./project/types/type_id.c \
+		./project/types/type_u.c \
+		./project/types/type_x.c \
+		./project/types/type_p.c
 
 OBJS = ${SRCS:.c=.o}
 
