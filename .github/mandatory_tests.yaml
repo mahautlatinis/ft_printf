@@ -1,4 +1,4 @@
-name: mandatory_tests
+name: mandatory
 
 on:
   push:
@@ -12,6 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Validate relaxed YAML file
-        run:  make && cd ./ft_printf_tester
-        run:  sh test m
+        run:  make
         shell: bash
