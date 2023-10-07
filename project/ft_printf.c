@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/07 18:04:12 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:08:23 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,14 @@ int	parse(const char *format, va_list arg_ptr)
 {
 	t_format	*spec;
 	int			printed_chars;
+	int			type;
 
 	spec = ft_initialize_struct();
 	if (format && spec)
-		fill_type(format, spec);
+	{
+		type = get_type(format);
+		spec->type = type;
+	}
 	dispatch(spec->type, spec, arg_ptr);
 	printed_chars = spec->printed_chars;
 	free(spec);
