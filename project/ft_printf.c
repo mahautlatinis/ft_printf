@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/07 18:36:04 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:38:56 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	dispatch(int select, t_format *f, va_list arg)
 {
 	t_dispatcher_ptr	arr[8];
 
-	arr[0] = &print_id;
-	arr[1] = &print_u;
-	arr[2] = &print_c;
-	arr[3] = &print_s;
-	arr[4] = &print_pc;
-	arr[5] = &print_x;
-	arr[6] = &print_p;
-	arr[7] = &print_x_uppercase;
+	arr[ID] = &print_id;
+	arr[U] = &print_u;
+	arr[C] = &print_c;
+	arr[S] = &print_s;
+	arr[PC] = &print_pc;
+	arr[H] = &print_x;
+	arr[P] = &print_p;
+	arr[X_UPPERCASE] = &print_x_uppercase;
 	arr[select](f, arg);
 }
 
