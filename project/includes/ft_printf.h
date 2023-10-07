@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/07 18:09:42 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:35:50 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # define P					6
 # define X_UPPERCASE		7
 
-
 # define OX 				"0x"
 # define NULLPTR			"0x0"
 # define BASE16 			"0123456789abcdef"
@@ -46,6 +45,8 @@ typedef struct s_format
 	int	type;
 	int	printed_chars;
 }				t_format;
+
+typedef void	(*t_dispatcher_ptr)(t_format *f, va_list arg);
 
 int			ft_strlen(const char *s);
 int			ft_putchar(char c);

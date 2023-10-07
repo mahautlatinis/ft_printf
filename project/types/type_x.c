@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:16:16 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/07 17:48:52 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:13:35 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_x_uppercase(t_format *f, va_list arg)
 	base = BASE16_UPPERCASE;
 	n = va_arg(arg, unsigned int);
 	f->printed_chars += ft_putnbr_u_base(f, n, base);
-
+	return ;
 }
 
 void	print_x(t_format *f, va_list arg)
@@ -31,4 +31,5 @@ void	print_x(t_format *f, va_list arg)
 	base = BASE16;
 	n = va_arg(arg, unsigned int);
 	f->printed_chars += ft_putnbr_u_base(f, n, base);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/07 18:08:23 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:36:04 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,16 @@ void	print_pc(t_format *spec, va_list arg_ptr)
 
 void	dispatch(int select, t_format *f, va_list arg)
 {
-	typedef void (*dispatcher_ptr)(t_format *f, va_list arg);
-	dispatcher_ptr arr[] =
-        {	
-			print_id,
-			print_u,
-			print_c,
-			print_s,
-			print_pc,
-			print_x,
-			print_p,
-			print_x_uppercase,
-		};
+	t_dispatcher_ptr	arr[8];
+
+	arr[0] = &print_id;
+	arr[1] = &print_u;
+	arr[2] = &print_c;
+	arr[3] = &print_s;
+	arr[4] = &print_pc;
+	arr[5] = &print_x;
+	arr[6] = &print_p;
+	arr[7] = &print_x_uppercase;
 	arr[select](f, arg);
 }
 
