@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:58:22 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:05:07 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 17:21:40 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ int	get_type(const char *f)
 		return (S);
 	else if (f[i] == '%')
 		return (PC);
-	else if (f[i] == 'x' || f[i] == 'X')
+	else if (f[i] == 'x')
 		return (H);
+	else if (f[i] == 'X')
+		return (X_UPPERCASE);
 	else if (f[i] == 'p')
 		return (P);
 	return (0);

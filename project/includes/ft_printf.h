@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:06:05 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 17:37:49 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,25 @@
 # include <stdbool.h>
 # include <limits.h>
 
-# define ID 1
-# define U 2
-# define C 3
-# define S 4
-# define PC 5
-# define H 6
-# define P 7
-# define LEN_OX 2
-# define OX "0x"
-# define BASE16 "0123456789abcdef"
-# define BASE16_UPPERCASE "0123456789ABCDEF"
-# define BASE16LEN 16
-# define NULLPTR "0x0"
-# define INT_MIN_STR "-2147483648"
-# define NULL_STR "(null)"
+# define ID					0
+# define U					1
+# define C					2
+# define S					3
+# define PC					4
+# define H					5
+# define P					6
+# define X_UPPERCASE		7
+
+
+# define OX 				"0x"
+# define NULLPTR			"0x0"
+# define BASE16 			"0123456789abcdef"
+# define BASE16_UPPERCASE	"0123456789ABCDEF"
+# define INT_MIN_STR		"-2147483648"
+# define NULL_STR			"(null)"
+
+# define BASE16LEN			16
+# define LEN_OX 			2
 
 typedef struct s_format
 {
@@ -43,33 +47,38 @@ typedef struct s_format
 	int	printed_chars;
 }				t_format;
 
+int			ft_strlen(const char *s);
 int			ft_putchar(char c);
 int			ft_isdigit(int c);
-int			n_size_i(int n);
 int			putnbr(int nbr);
-int			is_correct_type(char c);
-int			ft_strlen(const char *s);
-int			is_correct_spec(const char *s);
 int			ft_putstr(const char *str);
-char		which_x_type(const char *format);
-int			get_type(const char *format);
+
+int			n_size_i(int n);
+int			n_size_u(unsigned int n);
+int			putnbr_unsigned(unsigned int nbr);
+void		ft_putnbr_base16(unsigned long long n, char *b);
+int			ft_putnbr_u_base(t_format *f, unsigned int n, char *base);
 int			count_nbr_u_base(unsigned int nbr, char *base);
+
+int			is_correct_type(char c);
+int			is_correct_spec(const char *s);
+
+int			get_type(const char *format);
 t_format	*ft_initialize_struct(void);
 int			fill_type(const char *str, t_format *format);
 void		fill_struct(const char *str, t_format *format);
-void		print_x(const char *str, t_format *format, va_list arg_ptr);
-void		print_u(t_format *f, va_list arg);
-int			n_size_u(unsigned int n);
-int			putnbr_unsigned(unsigned int nbr);
-int			ft_putnbr_u_base(t_format *f, unsigned int n, char *base);
-void		print_s(t_format *f, va_list arg);
+
 int			percent_len(const char *s);
-int			print_pointer(unsigned long long ptr);
-void		print_p(t_format *f, va_list arg);
-void		ft_putnbr_base16(unsigned long long n, char *b);
 int			count_pointer_length(unsigned long long n, char *b);
+
+void		print_u(t_format *f, va_list arg);
+void		print_s(t_format *f, va_list arg);
 void		print_id(t_format *f, va_list arg);
 void		print_c(t_format *f, va_list arg);
+void		print_p(t_format *f, va_list arg);
+void		print_x(t_format *f, va_list arg);
+void		print_x_uppercase(t_format *f, va_list arg);
+
 int			ft_printf(const char *format, ...);
 
 #endif

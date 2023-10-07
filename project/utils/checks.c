@@ -6,29 +6,11 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 18:38:25 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:05:01 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 17:17:28 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-char	which_x_type(const char *f)
-{
-	int	i;
-
-	if (!f)
-		return (0);
-	i = 0;
-	if (f[i] == '%')
-		i++;
-	while (!(is_correct_type(f[i])) && f[i])
-		i++;
-	if (f[i] == 'x')
-		return ('x');
-	else if (f[i] == 'X')
-		return ('X');
-	return (0);
-}
 
 int	is_correct_type(char c)
 {
