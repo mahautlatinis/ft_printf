@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:34:08 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/07 17:37:49 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:04:20 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int			is_correct_spec(const char *s);
 int			get_type(const char *format);
 t_format	*ft_initialize_struct(void);
 int			fill_type(const char *str, t_format *format);
-void		fill_struct(const char *str, t_format *format);
 
 int			percent_len(const char *s);
 int			count_pointer_length(unsigned long long n, char *b);

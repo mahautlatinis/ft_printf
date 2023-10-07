@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:58:22 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/07 17:21:40 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:01:28 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,7 @@ int	fill_type(const char *str, t_format *f)
 {
 	int	type;
 
-	if (!str && !f)
-		return (false);
 	type = get_type(str);
 	f->type = type;
 	return (type);
-}
-
-void	fill_struct(const char *str, t_format *f)
-{
-	if (!str && !f)
-		return ;
-	fill_type(str, f);
 }
