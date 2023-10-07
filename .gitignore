@@ -1,2 +1,4 @@
 */*.o
 ./libftprintf.a
+./vscode
+venv

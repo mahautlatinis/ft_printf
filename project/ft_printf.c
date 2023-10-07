@@ -6,45 +6,47 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 15:49:36 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 22:42:03 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:38:56 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
 
-int	print_type(const char *str, t_format *spec, va_list arg_ptr)
+void	print_pc(t_format *spec, va_list arg_ptr)
 {
-	int	type;
+	(void)arg_ptr;
+	ft_putchar('%');
+	spec->printed_chars += 1;
+}
 
-	type = spec->type;
-	if (type == PC)
-	{
-		ft_putchar('%');
-		spec->printed_chars += 1;
-	}
-	else if (type == S)
-		print_s(spec, arg_ptr);
-	else if (type == ID)
-		print_id(spec, arg_ptr);
-	else if (type == U)
-		print_u(spec, arg_ptr);
-	else if (type == H)
-		print_x(str, spec, arg_ptr);
-	else if (type == P)
-		print_p(spec, arg_ptr);
-	else if (type == C)
-		print_c(spec, arg_ptr);
-	return (-1);
+void	dispatch(int select, t_format *f, va_list arg)
+{
+	t_dispatcher_ptr	arr[8];
+
+	arr[ID] = &print_id;
+	arr[U] = &print_u;
+	arr[C] = &print_c;
+	arr[S] = &print_s;
+	arr[PC] = &print_pc;
+	arr[H] = &print_x;
+	arr[P] = &print_p;
+	arr[X_UPPERCASE] = &print_x_uppercase;
+	arr[select](f, arg);
 }
 
 int	parse(const char *format, va_list arg_ptr)
 {
 	t_format	*spec;
 	int			printed_chars;
+	int			type;
 
 	spec = ft_initialize_struct();
-	fill_struct(format, spec);
-	print_type(format, spec, arg_ptr);
+	if (format && spec)
+	{
+		type = get_type(format);
+		spec->type = type;
+	}
+	dispatch(spec->type, spec, arg_ptr);
 	printed_chars = spec->printed_chars;
 	free(spec);
 	return (printed_chars);

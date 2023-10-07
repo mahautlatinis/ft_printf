@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:58:22 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/01 23:05:07 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/07 18:31:19 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	get_type(const char *f)
 {
 	int	i;
 
-	if (!f)
-		return (0);
 	i = 0;
 	if (f[i] == '%')
 		i++;
@@ -33,11 +31,11 @@ int	get_type(const char *f)
 		return (S);
 	else if (f[i] == '%')
 		return (PC);
-	else if (f[i] == 'x' || f[i] == 'X')
+	else if (f[i] == 'x')
 		return (H);
-	else if (f[i] == 'p')
-		return (P);
-	return (0);
+	else if (f[i] == 'X')
+		return (X_UPPERCASE);
+	return (P);
 }
 
 t_format	*ft_initialize_struct(void)
@@ -56,16 +54,9 @@ int	fill_type(const char *str, t_format *f)
 {
 	int	type;
 
-	if (!str && !f)
-		return (false);
+	if (!f)
+		return (-1);
 	type = get_type(str);
 	f->type = type;
 	return (type);
-}
-
-void	fill_struct(const char *str, t_format *f)
-{
-	if (!str && !f)
-		return ;
-	fill_type(str, f);
 }
