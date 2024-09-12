@@ -1,4 +1,4 @@
-name: C/C++ compilation CI
+name: macOS compilation
 
 on:
   push:
