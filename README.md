@@ -5,6 +5,8 @@ Ft_printf - 2021 (Common Core)
 - Actual Status : validated.
 - Result : 100% (30/09/2O21), updated and tested locally (only) on 2023 (made it shorter, following new requirements).
 
+[Watch](https://youtu.be/xUZwI9Xo1_k)
+
 ```sh
 # To run project
 make
