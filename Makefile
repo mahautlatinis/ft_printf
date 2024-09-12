@@ -57,4 +57,7 @@ re: 			fclean all
 test:
 				ls -lR; make; cd ./tester; make; ./test m
 
+norminette:
+				norminette ./project
+
 .PHONY:			bonus all clean fclean re ${LIBFT_PROJECT}

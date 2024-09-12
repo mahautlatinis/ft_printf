@@ -160,10 +160,9 @@ int check_leaks_malloc_count(int user_stderr)
 	return (leaked);
 }
 
-int check_errors(char *params_used)
+int check_errors(void)
 {
 	int error = 0;
-	(void) params_used;
 
 	int user_stderr = open("files/user_stderr.txt", O_RDONLY);
 
@@ -189,7 +188,7 @@ int check_result(t_result *user_result, t_result *orig_result, char *params_used
 		int errors = 0;
 		int wrong_return = 0;
 
-		errors = check_errors(params_used);
+		errors = check_errors();
 		expected = orig_result->output_str;
 		result = user_result->output_str;
 		if (!errors || errors == ERRORS_LEAK)
